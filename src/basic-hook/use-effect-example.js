@@ -4,13 +4,10 @@ import { Button } from "../reusable/button";
 import { Container } from "../reusable/container";
 import { BigText } from "../reusable/big-text";
 
-const UseEffectExample = () => {
-  const [count, setCount] = React.useState();
-  const fetchCount = async () => {
-    setCount(await utils.fetchCount());
-  };
+const Display = () => {
+  const [count, setCount] = React.useState(undefined);
   React.useEffect(() => {
-    fetchCount();
+    utils.fetchCount().then((value) => setCount(value));
   }, []);
   return (
     <Container>
@@ -27,4 +24,4 @@ const UseEffectExample = () => {
   );
 };
 
-export default UseEffectExample;
+export default Display;

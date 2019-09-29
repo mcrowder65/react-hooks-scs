@@ -5,14 +5,11 @@ import { BigText } from "../reusable/big-text";
 import { Text } from "../reusable/text";
 import { Container } from "../reusable/container";
 
-const UseEffectExampleTimesTwo = () => {
+const Display = () => {
   const [count, setCount] = React.useState();
   const [evenNumberOccurrences, setEvenNumberOccurrences] = React.useState(0);
-  const fetchCount = async () => {
-    setCount(await utils.fetchCount());
-  };
   React.useEffect(() => {
-    fetchCount();
+    utils.fetchCount().then((value) => setCount(value));
   }, []);
 
   React.useEffect(() => {
@@ -38,4 +35,4 @@ const UseEffectExampleTimesTwo = () => {
   );
 };
 
-export default UseEffectExampleTimesTwo;
+export default Display;

@@ -1,8 +1,8 @@
 import React from "react";
-import { sleep } from "mooks";
 import { Button } from "../reusable/button";
 import { Container } from "../reusable/container";
 import { Text } from "../reusable/text";
+import { serverRequest } from "../server-request";
 export class ApiCall extends React.Component {
   state = {
     isLoading: false,
@@ -24,21 +24,17 @@ export class ApiCall extends React.Component {
   }
 }
 
-const RenderPropsApiCall = () => {
+const Display = () => {
   return (
     <ApiCall
       children={(props) => {
         const apiCall = async () => {
-          await sleep(1000);
+          await serverRequest();
         };
         return (
           <Container>
             {props.isLoading ? <Text>loading...</Text> : null}
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={() => props.makeApiCall(apiCall)}
-            >
+            <Button onClick={() => props.makeApiCall(apiCall)}>
               Make Api Call!
             </Button>
           </Container>
@@ -48,4 +44,4 @@ const RenderPropsApiCall = () => {
   );
 };
 
-export default RenderPropsApiCall;
+export default Display;

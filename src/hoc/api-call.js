@@ -1,8 +1,8 @@
 import React from "react";
-import { sleep } from "mooks";
 import { Button } from "../reusable/button";
 import { BigText } from "../reusable/big-text";
 import { Container } from "../reusable/container";
+import { serverRequest } from "../server-request";
 
 export const withApiCall = (YourComponent) => {
   return class extends React.Component {
@@ -30,9 +30,9 @@ export const withApiCall = (YourComponent) => {
   };
 };
 
-const ApiCallHoc = (props) => {
+const Display = (props) => {
   const apiCall = async () => {
-    await sleep(1000);
+    await serverRequest();
   };
   return (
     <Container>
@@ -42,4 +42,4 @@ const ApiCallHoc = (props) => {
   );
 };
 
-export default withApiCall(ApiCallHoc);
+export default withApiCall(Display);

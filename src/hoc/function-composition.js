@@ -9,7 +9,7 @@ const add20 = compose(
   add10,
   add10,
 );
-const FunctionComposition = () => {
+const Display = () => {
   return (
     <Container>
       <BigText>{add20(3)}</BigText>
@@ -17,4 +17,4 @@ const FunctionComposition = () => {
   );
 };
 
-export default FunctionComposition;
+export default Display;

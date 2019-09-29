@@ -1,6 +1,7 @@
 import React from "react";
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent } from "@testing-library/react";
 import Outline from "../outline";
+import { render } from "../../../test/utils";
 
 test("that it renders", () => {
   render(<Outline />);

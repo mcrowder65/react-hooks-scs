@@ -1,12 +1,26 @@
 import React from "react";
-import { Button as MuiButton } from "@material-ui/core";
-import { theme } from "./theme";
+import MuiButton from "@material-ui/core/Button";
+import { useMediaQuery, useTheme } from "@material-ui/core";
 
 export const Button = ({
   variant = "contained",
   color = "primary",
-  style = theme.buttonSize,
+  style = { marginTop: 10, width: 500, height: 75, fontSize: 35 },
   ...props
 }) => {
-  return <MuiButton style={style} variant={variant} color={color} {...props} />;
+  const theme = useTheme();
+  const isPhone = useMediaQuery(`(max-width: ${theme.maxWidth}px)`);
+  const styleToApply = isPhone ? { marginTop: 10 } : style;
+  return (
+    <MuiButton
+      style={{
+        ...styleToApply,
+        // Edge case where in tests for some reason backgroundColor comes back as ButtonFace
+        backgroundColor: color === "primary" && theme.palette.primary.main,
+      }}
+      variant={variant}
+      color={color}
+      {...props}
+    />
+  );
 };

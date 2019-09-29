@@ -33,11 +33,11 @@ export const withNetworkStatus = (YourComponent) => {
   };
 };
 
-const NetworkStatusHOC = (props) => {
+const Display = (props) => {
   return (
     <Container>
-      <BigText>Network status: {props.networkStatus}</BigText>
+      <BigText> Network status: {props.networkStatus}</BigText>
     </Container>
   );
 };
-export default withNetworkStatus(NetworkStatusHOC);
+export default withNetworkStatus(Display);

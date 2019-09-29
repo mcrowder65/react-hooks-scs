@@ -6,12 +6,9 @@ import {
   MuiThemeProvider as ThemeProvider,
 } from "@material-ui/core/styles";
 import { createBrowserHistory } from "history";
-import AgendaAndGoals from "./agenda-and-goals";
 import NetworkStatusHoc from "./hoc/network-status";
 import AboutMe from "./about-me";
-import Todo from "./todo";
-import { theme } from "./theme";
-import HocsInAppian from "./hoc/hocs-in-appian";
+import { theme } from "./reusable/theme";
 import ApiCallHoc from "./hoc/api-call";
 import FunctionComposition from "./hoc/function-composition";
 import BringItAllTogetherHOC from "./hoc/bring-it-together";
@@ -33,20 +30,9 @@ const browserHistory = createBrowserHistory();
 const routes = [
   { path: "/about-me", name: "About me", component: AboutMe },
   {
-    path: "/agenda-and-goals",
-    name: "Agenda and Goals",
-    component: AgendaAndGoals,
-  },
-  {
     path: "/hocs",
     name: "Higher Order Components",
-    component: Todo,
     subcomponents: [
-      {
-        path: "/example-hoc",
-        name: "HOCs in Appian!",
-        component: HocsInAppian,
-      },
       {
         path: "/network-status",
         name: "Network Status",
@@ -72,7 +58,6 @@ const routes = [
   {
     path: "/render-props",
     name: "Render Props",
-    component: Todo,
     subcomponents: [
       {
         path: "/children",
@@ -99,7 +84,6 @@ const routes = [
   {
     path: "/basic-hook",
     name: "Basic Hook",
-    component: Todo,
     subcomponents: [
       {
         path: "/destructuring",
@@ -126,7 +110,6 @@ const routes = [
   {
     path: "/rewrite-in-hooks",
     name: "Writing it all in hooks",
-    component: Todo,
     subcomponents: [
       {
         path: "/network-status",

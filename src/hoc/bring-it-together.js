@@ -1,17 +1,15 @@
 import React from "react";
-import { sleep } from "mooks";
-import { compose } from "../utils";
 import { withApiCall } from "./api-call";
 import { withNetworkStatus } from "./network-status";
 import { Button } from "../reusable/button";
 import { BigText } from "../reusable/big-text";
 import { Container } from "../reusable/container";
-import { PureComponent } from "./pure-component";
+import { serverRequest } from "../server-request";
 
-const BringItAllTogetherHOC = (props) => {
+const Display = (props) => {
   const makeApiCall = () => {
     props.makeApiCall(async () => {
-      await sleep(1000);
+      await serverRequest();
     });
   };
   return (
@@ -24,10 +22,4 @@ const BringItAllTogetherHOC = (props) => {
   );
 };
 
-const enhance = compose(
-  withApiCall,
-  withNetworkStatus,
-  PureComponent(["isLoading"]),
-);
-
-export default enhance(BringItAllTogetherHOC);
+export default withApiCall(withNetworkStatus(Display));

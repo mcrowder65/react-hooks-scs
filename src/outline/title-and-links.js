@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { GitHub, Twitter } from "../social";
+import { GitHub, Twitter } from "../reusable/social";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/icons/Menu";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

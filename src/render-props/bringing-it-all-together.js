@@ -1,12 +1,12 @@
 import React from "react";
 import { NetworkStatus } from "./network-status";
 import { ApiCall } from "./api-call";
-import { sleep } from "mooks";
 import { Button } from "../reusable/button";
 import { Container } from "../reusable/container";
 import { Text } from "../reusable/text";
+import { serverRequest } from "../server-request";
 
-const BringingItAllTogetherRenderProps = () => {
+const Display = () => {
   return (
     <NetworkStatus
       children={(extraProps) => {
@@ -15,7 +15,7 @@ const BringingItAllTogetherRenderProps = () => {
             children={(moreExtraProps) => {
               const apiCall = () =>
                 moreExtraProps.makeApiCall(async () => {
-                  await sleep(1000);
+                  await serverRequest();
                 });
               return (
                 <Container>
@@ -33,4 +33,4 @@ const BringingItAllTogetherRenderProps = () => {
   );
 };
 
-export default BringingItAllTogetherRenderProps;
+export default Display;
