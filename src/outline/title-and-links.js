@@ -11,8 +11,8 @@ import { useTheme } from "@material-ui/core";
 function TitleAndLinks(props) {
   const theme = useTheme();
   const isPhone = useMediaQuery(`(min-width: ${theme.maxWidth}px)`);
-  const headerTitle = props.routes.find(route =>
-    props.location.pathname.includes(route.path)
+  const headerTitle = props.routes.find((route) =>
+    props.location.pathname.includes(route.path),
   );
   return (
     <Grid container justify="space-between" alignItems="center" direction="row">
@@ -37,7 +37,7 @@ function TitleAndLinks(props) {
           color="inherit"
           aria-label="Open drawer"
           edge="end"
-          onClick={() => props.setDrawerOpen(state => !state)}
+          onClick={() => props.setDrawerOpen((state) => !state)}
         >
           <Menu />
         </IconButton>

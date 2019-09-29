@@ -35,7 +35,7 @@ export const Twitter = () => (
 
 export const GitHub = () => (
   <Link
-    href={`https://github.com/mcrowder65/testing-react-scs`}
+    href={`https://github.com/mcrowder65/react-hooks-scs`}
     rel="noopener noreferrer"
     aria-label="Visit my GitHub"
     target="_blank"
