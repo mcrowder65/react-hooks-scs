@@ -26,8 +26,30 @@ import Conclusion from "./conclusion";
 import Children from "./render-props/children";
 import AdditionalResources from "./more-links";
 import Outline from "./outline/outline";
+import open from "./open.png";
+import feedback from "./feedback.png";
+import sponsors from "./sponsors.png";
+import { Container } from "./reusable/container";
 const browserHistory = createBrowserHistory();
+
+const ScsSlide = ({ src, alt, height, width }) => (
+  <Container>
+    <img src={src} width={width} height={height} alt={alt} />
+  </Container>
+);
 const routes = [
+  {
+    path: "/opening",
+    name: "Opening",
+    component: () => (
+      <ScsSlide
+        src={open}
+        alt="opening slide about scenic city summit"
+        height={1080 * 0.7}
+        width={1920 * 0.7}
+      />
+    ),
+  },
   { path: "/about-me", name: "About me", component: AboutMe },
   {
     path: "/hocs",
@@ -137,6 +159,30 @@ const routes = [
     path: "/additional-readings",
     name: "Additional Links",
     component: AdditionalResources,
+  },
+  {
+    path: "/sponsors",
+    name: "Sponsors",
+    component: () => (
+      <ScsSlide
+        src={sponsors}
+        alt="Slide about sponsors"
+        height={1080 * 0.7}
+        width={1920 * 0.7}
+      />
+    ),
+  },
+  {
+    path: "/feedback",
+    name: "Feedback",
+    component: () => (
+      <ScsSlide
+        src={feedback}
+        alt="closing slide to provide feedback"
+        height={1080 * 0.7}
+        width={1920 * 0.7}
+      />
+    ),
   },
 ];
 const muiTheme = createMuiTheme(theme);
